@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XAUUSD Institutional Liquidity Heatmap Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-overlay"></div>
+<div class="app">
+    <!-- HEADER -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo-box">
+                <span>XAU</span>
+            </div>
+            <div class="brand-text">
+                <h1>XAUUSD HEATMAP PRO</h1>
+                <p>Institutional Liquidity Tracker</p>
+            </div>
+        </div>
+        <div class="price-panel">
+            <div class="price-label">
+                LIVE PRICE
+            </div>
+            <div id="livePrice" class="live-price">
+                Loading...
+            </div>
+            <div id="priceStatus" class="price-status">
+                Connecting...
+            </div>
+        </div>
+    </header>
+    <!-- CONTROL BAR -->
+    <section class="control-bar">
+        <div class="timeframes">
+            <button class="tf-btn active" data-tf="M1">
+                M1
+            </button>
+            <button class="tf-btn" data-tf="M5">
+                M5
+            </button>
+            <button class="tf-btn" data-tf="M15">
+                M15
+            </button>
+            <button class="tf-btn" data-tf="H1">
+                H1
+            </button>
+            <button class="tf-btn" data-tf="H4">
+                H4
+            </button>
+            <button class="tf-btn" data-tf="D1">
+                D1
+            </button>
+        </div>
+        <div class="market-info">
+            <div class="info-box">
+                <span>Spread</span>
+                <strong id="spreadValue">
+                    0.00
+                </strong>
+            </div>
+            <div class="info-box">
+                <span>Volume</span>
+                <strong id="volumeValue">
+                    0
+                </strong>
+            </div>
+            <div class="info-box">
+                <span>Icebergs</span>
+                <strong id="icebergCount">
+                    0
+                </strong>
+            </div>
+        </div>
+    </section>
+    <!-- MAIN -->
+    <main class="main-layout">
+        <!-- HEATMAP -->
+        <section class="heatmap-section">
+            <div class="panel-title">
+                LIQUIDITY HEATMAP
+            </div>
+            <div class="heatmap-wrapper">
+                <canvas id="heatmapCanvas"></canvas>
+                <canvas id="overlayCanvas"></canvas>
+                <div class="legend-box">
+                    <h4>Liquidity</h4>
+                    <div class="legend-gradient"></div>
+                    <div class="legend-row">
+                        <span>Low</span>
+                        <span>High</span>
+                    </div>
+                </div>
+                <div class="floating-price">
+                    <span id="floatingPrice">
+                        --
+                    </span>
+                </div>
+            </div>
+        </section>
+        <!-- ORDER BOOK -->
+        <aside class="orderbook-section">
+            <div class="panel-title">
+                ORDER BOOK
+            </div>
+            <div class="book-header">
+                <span>Price</span>
+                <span>Size</span>
+            </div>
+            <div id="orderBook" class="orderbook-body">
+            </div>
+        </aside>
+    </main>
+    <!-- FOOTER -->
+    <footer class="footer-bar">
+        <div class="footer-left">
+            <span>
+                FPS:
+                <strong id="fpsCounter">
+                    0
+                </strong>
+            </span>
+            <span>
+                Trades:
+                <strong id="tradeCounter">
+                    0
+                </strong>
+            </span>
+        </div>
+        <div class="footer-right">
+            <span id="currentTime">
+                --:--:--
+            </span>
+        </div>
+    </footer>
+</div>
+<audio id="clickSound" preload="auto">
+    <source src="click.mp3" type="audio/mpeg">
+</audio>
+<script src="app.js"></script>
+</body>
+</html>
